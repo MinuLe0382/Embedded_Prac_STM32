@@ -13,3 +13,29 @@ GPIO Port C의 주소를 이용했다.
 그래서 소스코드를 제어한다.
 
 빠르게 하려면 예제코드를 보고 역으로 데이터시트를 추적한다. 
+
+![image](https://github.com/user-attachments/assets/38867783-1c79-420b-9621-1538359a41b9)
+
+GPIOC 클록을 제어하려면  
+
+![image](https://github.com/user-attachments/assets/a865c151-a44e-4f98-977e-55cde2db3ba1)
+![image](https://github.com/user-attachments/assets/778f4f93-ee6e-497b-8d51-819025541135)
+![image](https://github.com/user-attachments/assets/56653d7f-dc41-4582-a4a9-8a5e2479bc81)
+
+클록을 활성화하는 코드를보면
+
+volatile unsigned int * reg = 0x40021018;  
+*reg |= 16;  
+
+GPIO init으로 옵션을 설정해주는데  
+![image](https://github.com/user-attachments/assets/c95e2c61-381e-4930-bcf3-930681432cb9)
+위 비트를 조합해서 설정을 한다.
+
+volatile unsigned int * reg2 = 0x40011004;
+*reg2 = (*reg2 & ~(15UL << 20U)) | (3U << 20U);
+
+WritePin으로 핀을 끄고 키고를 제어했다.
+
+![image](https://github.com/user-attachments/assets/81d35f24-a8f8-4bac-a093-62be24a43136)
+
+리셋할때 16칸을 밀어버린 이유는 데이터시트를 보면 알 수 있다.  
