@@ -1,4 +1,4 @@
-## Repository for Embedded Programming Practice with STM32F103C8
+## Embedded Programming Practice with STM32F103C8
 
 ![image](https://github.com/user-attachments/assets/c4ffca69-f8e8-4d73-beaa-b9745a4cab4d)
 
